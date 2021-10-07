@@ -1,0 +1,109 @@
+// IMPORTS
+@font-face {
+  font-family: "04b03";
+  src: url(../04b03.TTF);
+}
+
+// SASS VARIABLES
+$font: "04b03", monospace;
+$red: #ff1111;
+$orange: #ff7700;
+$yellow: #ffdd22;
+$green: #44ee33;
+$blue: #1166cc;
+$light-blue: #66ccff;
+$light-pink: #ff88bb;
+$pink: #ee2299;
+$purple: #7700aa;
+$dark: #010101;
+$light: #fefefe;
+$grey: #bbbbbb;
+
+$main: $dark;
+$primary: $pink;
+$secondary: $orange;
+
+// RESETS
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+// GLOBAL STYLES
+body {
+  font-family: $font;
+  color: $dark;
+  font-size: 14px;
+  background: rgb(131, 58, 180);
+  background: linear-gradient(
+    90deg,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(253, 29, 29, 1) 50%,
+    rgba(252, 176, 69, 1) 100%
+  );
+  min-height: calc(100vh - 100px);
+  margin: 50px;
+}
+
+img {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: $primary;
+  &:visited {
+    color: lighten($primary, 20%);
+  }
+  &:hover {
+    color: $secondary;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: auto;
+  text-transform: uppercase;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.intro {
+  grid-column: span 3;
+}
+
+.gallery {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(3, minmax(32px, 148px));
+  align-content: center;
+  /* grid-template-columns: repeat(3, 1fr); */
+  margin: auto;
+}
+
+.item {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 3px;
+  font-size: 12px;
+  background-color: rgba(255, 255, 255, 0.6);
+}

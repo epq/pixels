@@ -4,10 +4,10 @@ html(lang="en")
     meta(charset="UTF-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    link(rel='apple-touch-icon' sizes='180x180' href='/images/apple-touch-icon.png')
-    link(rel='icon' type='image/png' sizes='32x32' href='/images/favicon/favicon-32x32.png')
-    link(rel='icon' type='image/png' sizes='16x16' href='/images/favicon/favicon-16x16.png')
-    link(rel='manifest' href='/images/favicon/site.webmanifest')
+    link(rel='apple-touch-icon' sizes='180x180' href='./images/apple-touch-icon.png')
+    link(rel='icon' type='image/png' sizes='32x32' href='./images/favicon/favicon-32x32.png')
+    link(rel='icon' type='image/png' sizes='16x16' href='./images/favicon/favicon-16x16.png')
+    link(rel='manifest' href='./images/favicon/site.webmanifest')
     meta(name="author", content="Jordanne Chan")
     meta(name="description", content="Jordanne's pixel art gallery")
     meta(name="keywords", content="pixel art, Jordanne Chan")
@@ -19,15 +19,18 @@ html(lang="en")
     meta(property="og:image", content="https://jordannechan.ca/pixels/images/image.png")
     meta(name="twitter:card", content="summary_large_image")
     meta(name="twitter:creator", content="@JordanneChan")
-    link(rel="stylesheet", href="/css/style.css")
+    link(rel="stylesheet", href="./css/style.css")
     title Pixel Art Gallery
   body 
     .container
       h1 Pixel Art Gallery 
-      .gallery
+      main.gallery
         .intro Since the beginning of 2021, I've been sectioning every two weeks of my life into a "sprint" period, where I manage tasks, events and personal goals. Each sprint has a codename, and gets an accompanying pixel character. Check them out below. 
         - const filesList = [{ image: "03.png", name: "Milky" },{ image: "04.gif", name: "Cow" },{ image: "05.png", name: "Tortoiseshell" },{ image: "06.gif", name: "Qiu" },{ image: "07.gif", name: "Torus" },{ image: "08.png", name: "Worm" },{ image: "09.gif", name: "Tomat" },{ image: "10.gif", name: "Ghosty" },{ image: "11.gif", name: "Frog" },{ image: "12.gif", name: "Potato" },{ image: "13.gif", name: "Geometry" },{ image: "14.gif", name: "String" },{ image: "15.gif", name: "Egg" }, { image: "16.gif", name: "Box"}, {image: "17.gif", name: "Deutsch"}, {image: "18.gif", name: "1998"}, {image: "19.gif", name: "Voice"}, {image: "20.gif", name: "Trash"}, {image: "21.gif", name: "Tea Time"}, {image: "22.gif", name: "Fungus"}];
         for n in filesList
           .item
             img(src=`images/${n.image}`, alt=`${n.name}`)
             .title=n.name
+      footer.footer
+        p.copyright © 2021 
+          a(href="https://jordanne.ca") Jordanne Chan

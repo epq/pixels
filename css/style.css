@@ -2,15 +2,18 @@
   font-family: "04b03";
   src: url(../04b03.TTF);
 }
+
 html {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   font-size: 100%;
 }
 
 *,
 *::before,
 *::after {
-  box-sizing: inherit;
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
 }
 
 body {
@@ -18,13 +21,17 @@ body {
   color: #010101;
   font-size: 14px;
   background: #833ab4;
+  background: -webkit-gradient(linear, left top, right top, from(#833ab4), color-stop(50%, #fd1d1d), to(#fcb045));
   background: linear-gradient(90deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%);
   min-height: calc(100vh - 100px);
   margin: 50px;
 }
 
 img {
-  image-rendering: pixelated;
+  -ms-interpolation-mode: nearest-neighbor;
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: -o-pixelated;
+      image-rendering: pixelated;
   image-rendering: -moz-crisp-edges;
   image-rendering: crisp-edges;
   width: 100%;
@@ -34,9 +41,11 @@ a {
   text-decoration: none;
   color: #ee2299;
 }
+
 a:visited {
   color: #f581c5;
 }
+
 a:hover {
   color: #ff7700;
 }
@@ -52,9 +61,16 @@ h6 {
 }
 
 .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .intro {
@@ -62,20 +78,30 @@ h6 {
 }
 
 .gallery {
+  display: -ms-grid;
   display: grid;
   grid-gap: 1rem;
-  grid-template-columns: repeat(3, minmax(32px, 148px));
-  align-content: center;
+  -ms-grid-columns: (minmax(32px, 148px))[3];
+      grid-template-columns: repeat(3, minmax(32px, 148px));
+  -ms-flex-line-pack: center;
+      align-content: center;
   /* grid-template-columns: repeat(3, 1fr); */
   margin: auto;
 }
 
 .item {
+  display: -ms-grid;
   display: grid;
   justify-items: center;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 10px;
   border-radius: 3px;
   font-size: 12px;
   background-color: rgba(255, 255, 255, 0.6);
+}
+
+.footer {
+  text-align: center;
 }

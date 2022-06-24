@@ -26,10 +26,10 @@ html(lang="en")
       h1 Pixel Art Gallery 
       main.gallery
         .intro Since the beginning of 2021, I've been sectioning every two weeks of my life into a "sprint" period, where I manage tasks, events and personal goals. Each sprint has a codename, and gets an accompanying pixel character. Check them out below. 
-        - const filesList = [{ image: "03.png", name: "Milky" },{ image: "04.gif", name: "Cow" },{ image: "05.png", name: "Tortoiseshell" },{ image: "06.gif", name: "Qiu" },{ image: "07.gif", name: "Torus" },{ image: "08.png", name: "Worm" },{ image: "09.gif", name: "Tomat" },{ image: "10.gif", name: "Ghosty" },{ image: "11.gif", name: "Frog" },{ image: "12.gif", name: "Potato" },{ image: "13.gif", name: "Geometry" },{ image: "14.gif", name: "String" },{ image: "15.gif", name: "Egg" }, { image: "16.gif", name: "Box"}, {image: "17.gif", name: "Deutsch"}, {image: "18.gif", name: "1998"}, {image: "19.gif", name: "Voice"}, {image: "20.gif", name: "Trash"}, {image: "21.gif", name: "Tea Time"}, {image: "22.gif", name: "Fungus"}, {image: "23.gif", name: "Two"}, {image: "24.gif", name: "Fabric"}, {image: "25.gif", name: "Particle"}, {image: "26.gif", name: "Bread"}];
+        - const filesList = [{ year: 21, image: "03.png", name: "Milky" },{ year: 21, image: "04.gif", name: "Cow" },{ year: 21, image: "05.png", name: "Tortoiseshell" },{ year: 21, image: "06.gif", name: "Qiu" },{ year: 21, image: "07.gif", name: "Torus" },{ year: 21, image: "08.png", name: "Worm" },{ year: 21, image: "09.gif", name: "Tomat" },{ year: 21, image: "10.gif", name: "Ghosty" },{ year: 21, image: "11.gif", name: "Frog" },{ year: 21, image: "12.gif", name: "Potato" },{ year: 21, image: "13.gif", name: "Geometry" },{ year: 21, image: "14.gif", name: "String" },{ year: 21, image: "15.gif", name: "Egg" }, { year: 21, image: "16.gif", name: "Box"}, {year: 21, image: "17.gif", name: "Deutsch"}, {year: 21, image: "18.gif", name: "1998"}, {year: 21, image: "19.gif", name: "Voice"}, {year: 21, image: "20.gif", name: "Trash"}, {year: 21, image: "21.gif", name: "Tea Time"}, {year: 21, image: "21.gif", name: "Fungus"}, {year: 21, image: "23.gif", name: "Two"}, {year: 21, image: "24.gif", name: "Fabric"}, {year: 21, image: "25.gif", name: "Particle"}, {year: 21, image: "26.gif", name: "Bread"}];
         for n in filesList
           .item
-            img(src=`images/${n.image}`, alt=`${n.name}`)
+            img(src=`images/${n.year}-${n.image}`, alt=`${n.name}`)
             .title=n.name
       footer.footer
         p.copyright © 2021 

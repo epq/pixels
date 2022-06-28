@@ -18,7 +18,7 @@ html {
 
 body {
   font-family: "04b03", monospace;
-  color: #010101;
+  color: #fefefe;
   font-size: 14px;
   background: #833ab4;
   background: -webkit-gradient(linear, left top, right top, from(#833ab4), color-stop(50%, #fd1d1d), to(#fcb045));
@@ -104,4 +104,8 @@ h6 {
 
 .footer {
   text-align: center;
+}
+
+.hidden {
+  display: none;
 }

@@ -1,37 +1,33 @@
-// old script to populate the gallery; re-written in Pug
+const btnAll = document.querySelector('#btn-all').addEventListener('click', showAll);
+const btn2022 = document.querySelector('#btn22');
+const btn2021 = document.querySelector('#btn21');
+const yearButtons = [btn2022, btn2021];
 
-const filesList = [
-  { image: "21-03.png", name: "Milky" },
-  { image: "21-04.gif", name: "Cow" },
-  { image: "21-05.png", name: "Tortoiseshell" },
-  { image: "21-06.gif", name: "Qiu" },
-  { image: "21-07.gif", name: "Torus" },
-  { image: "21-08.png", name: "Worm" },
-  { image: "21-09.gif", name: "Tomat" },
-  { image: "21-10.gif", name: "Ghosty" },
-  { image: "21-.gif", name: "Frog" },
-  { image: "21-.gif", name: "Potato" },
-  { image: "21-.gif", name: "Geometry" },
-  { image: "21-.gif", name: "String" },
-  { image: "21.gif", name: "Egg" },
-];
+const gallery = document.querySelector('.gallery');
+const items = document.querySelectorAll('.item');
 
-const gallery = document.querySelector(".gallery");
+yearButtons.forEach(button => button.addEventListener('click', toggleVisibility))
 
-filesList.forEach((file) => {
-  const newDiv = document.createElement("div");
-  newDiv.setAttribute("class", "item");
+const items2021 = document.querySelectorAll('.yr-21');
 
-  const img = document.createElement("img");
-  img.src = `images/${file.image}`;
-  img.setAttribute("alt", file.name);
+console.log(btn2022)
+console.log(gallery)
+console.log(items2021)
 
-  const titleDiv = document.createElement("div");
-  titleDiv.setAttribute("class", "title");
-  const title = document.createTextNode(file.name);
-  titleDiv.appendChild(title);
+function toggleVisibility() {
+  console.log(this.dataset.yr)
+  // let yearItems = document.querySelectorAll(`.yr-${this.dataset.yr}`);
+  // yearItems.forEach(item => item.classList.toggle('hidden'));
 
-  newDiv.appendChild(img);
-  newDiv.appendChild(titleDiv);
-  gallery.appendChild(newDiv);
-});
+  for (let i = 0; i < items.length; i++) {
+    if (items[i].classList.contains(`yr-${this.dataset.yr}`)) {
+      items[i].classList.remove('hidden');
+    } else {
+      items[i].classList.add('hidden');
+    }
+  }
+}
+
+function showAll() {
+  items.forEach(item => item.classList.remove('hidden'));
+}

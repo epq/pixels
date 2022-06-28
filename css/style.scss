@@ -38,7 +38,7 @@ html {
 // GLOBAL STYLES
 body {
   font-family: $font;
-  color: $dark;
+  color: $light;
   font-size: 14px;
   background: rgb(131, 58, 180);
   background: linear-gradient(
@@ -110,4 +110,8 @@ h6 {
 
 .footer {
   text-align: center;
+}
+
+.hidden {
+  display: none;
 }

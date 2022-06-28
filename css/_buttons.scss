@@ -1,0 +1,128 @@
+$fontName: "04b03", monospace;
+
+$colors: (
+  primary: #cf9,
+  secondary: #fc9,
+  tertiary: #f69,
+);
+
+$primary: #cf9;
+$secondary: #fc9;
+$tertiary: #f69;
+$shade: rgba(0, 0, 0, 0.15);
+$shadeLight: rgba(255, 255, 255, 0.5);
+
+$borderColor: rgba(0, 0, 0, 0.84);
+$textColor: rgba(0, 0, 0, 0.84);
+
+$gridSize: 16px;
+$gridMajorLines: rgba(0, 0, 0, 0.25);
+$gridMinorLines: rgba(0, 0, 0, 0.2);
+$gridOpacity: 0;
+
+$pixelSize: 2px;
+
+@function pixel($size) {
+  @return ($size * $pixelSize);
+}
+
+@mixin flat() {
+  box-shadow: pixel(-1) 0 0 $borderColor, pixel(1) 0 0 $borderColor,
+    0 pixel(1) 0 $borderColor, 0 pixel(-1) 0 $borderColor;
+}
+
+@mixin bevel() {
+  box-shadow: inset pixel(1) pixel(1) 0 $shadeLight,
+    inset pixel(-1) pixel(-1) 0 $shade, pixel(-1) 0 0 $borderColor,
+    pixel(1) 0 0 $borderColor, 0 pixel(1) 0 $borderColor,
+    0 pixel(-1) 0 $borderColor;
+}
+
+@mixin raised() {
+  box-shadow: inset pixel(1) pixel(1) 0 $shadeLight,
+    inset pixel(-1) pixel(-1) 0 $shade, pixel(-1) 0 0 $borderColor,
+    pixel(1) 0 0 $borderColor, 0 pixel(1) 0 $borderColor,
+    0 pixel(-1) 0 $borderColor, pixel(2) pixel(1) 0 $shade,
+    pixel(1) pixel(2) 0 $shade;
+}
+
+@mixin inset() {
+  box-shadow: inset pixel(1) pixel(1) 0 $shade, pixel(-1) 0 0 $borderColor,
+    pixel(1) 0 0 lighten($borderColor, 20%),
+    0 pixel(1) 0 lighten($borderColor, 20%), 0 pixel(-1) 0 $borderColor;
+}
+
+@mixin box($background, $foreground) {
+  @include flat();
+  background: $background;
+  color: $foreground;
+  border: none;
+  margin: pixel(1) 0;
+  padding: pixel(4);
+}
+
+@mixin insetBox($background, $foreground) {
+  @include box($background, $foreground);
+  @include inset();
+}
+
+@mixin raisedBox($background, $borderColor) {
+  @include box($background, $borderColor);
+  @include raised();
+}
+
+@mixin button($background) {
+  @include box($background, $textColor);
+  @include bevel();
+  font-family: $fontName;
+  height: pixel(16);
+  cursor: pointer;
+  text-align: left;
+  line-height: 1;
+  margin-top: pixel(1);
+  margin-left: pixel(4);
+  white-space: nowrap;
+  &:first-child {
+    margin-left: 0;
+  }
+  &:hover {
+    background: lighten($background, 10%);
+  }
+  &:active,
+  &.pressed {
+    @include inset();
+    background: darken($background, 5%);
+  }
+}
+
+ // BUTTONS
+ button {
+  @include button($primary);
+  // Place buttons side by side in wrapper with some space
+
+  &.secondary {
+    @include button($secondary);
+  }
+  &.tertiary {
+    @include button($tertiary);
+  }
+  & + button {
+    margin-left: pixel(4);
+    // add left margin to active state to keep horizontal place
+    &:active {
+      margin-left: pixel(4);
+    }
+  }
+  &.raised {
+    @include raised();
+    &:active,
+    &.pressed {
+      @include inset();
+      margin: pixel(2) 0 0 pixel(4);
+    }
+    &:first-child:active,
+    &.pressed:first-child {
+      margin-left: 0;
+    }
+  }
+}

@@ -1,8 +1,10 @@
-const btnAll = document.querySelector('#btn-all').addEventListener('click', showAll);
 const btn2022 = document.querySelector('#btn22');
 const btn2021 = document.querySelector('#btn21');
 const yearButtons = [btn2022, btn2021];
 
+const btnAll = document.querySelector('#btn-all')
+btnAll.addEventListener('click', showAll);
+const allButtons = yearButtons.concat(btnAll);
 const gallery = document.querySelector('.gallery');
 const items = document.querySelectorAll('.item');
 
@@ -10,9 +12,10 @@ yearButtons.forEach(button => button.addEventListener('click', toggleVisibility)
 
 const items2021 = document.querySelectorAll('.yr-21');
 
-console.log(btn2022)
-console.log(gallery)
-console.log(items2021)
+console.log(allButtons)
+// console.log(btn2022)
+// console.log(gallery)
+// console.log(items2021)
 
 function toggleVisibility() {
   console.log(this.dataset.yr)
@@ -26,8 +29,15 @@ function toggleVisibility() {
       items[i].classList.add('hidden');
     }
   }
+
+  allButtons.forEach(button => button.classList.remove('tertiary'));
+  this.classList.add('tertiary')
 }
 
 function showAll() {
   items.forEach(item => item.classList.remove('hidden'));
+
+  yearButtons.forEach(button => button.classList.remove('tertiary'));
+
+  btnAll.classList.add('tertiary')
 }

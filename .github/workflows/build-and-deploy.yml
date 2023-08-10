@@ -24,9 +24,8 @@ jobs:
     - name: Build Eleventy site
       run: npx @11ty/eleventy
 
-    - name: Deploy to GitHub Pages
+    - name: Deploy to GitHub pages
       uses: peaceiris/actions-gh-pages@v3
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: public  # Replace '_site' with 'public' if your output directory is named 'public'
-        publish_branch: gh-pages
+        deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+        publish_dir: ./public

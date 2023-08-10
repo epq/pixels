@@ -1,0 +1,23 @@
+{
+  "author": "Jordanne Chan",
+  "description": "Jordanne's pixel art gallery",
+  "keywords": ["pixel art", "Jordanne Chan"],
+  "robots": "index, follow",
+  "og": {
+    "title": "Jordanne's Pixel Art Gallery",
+    "locale": "en_US",
+    "type": "website",
+    "url": "https://jordannechan.ca/pixels",
+    "image": "https://jordannechan.ca/pixels/assets/favicon/image.png"
+  },
+  "twitter": {
+    "card": "summary_large_image",
+    "creator": "@JordanneChan"
+  },
+  "favicon": {
+    "appleTouchIcon": "/assets/favicon/apple-touch-icon.png",
+    "favicon32": "/assets/favicon/favicon-32x32.png",
+    "favicon16": "/assets/favicon/favicon-16x16.png",
+    "manifest": "/assets/favicon/site.webmanifest"
+  }
+}

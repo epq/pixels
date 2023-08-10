@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% include "head.njk" %}
+
+    <link rel="stylesheet" type="text/css" href="{{ '/css/style.css' | url }}">
+    <title>{{ title }}</title>
+
+    {# defer script #}
+    <script defer src="{{ '/assets/script.js' | url }}"></script>
+  </head>
+  <body>
+
+    <div class="container">
+      <h1>{{ title }}</h1>
+      <main class="gallery">
+        <div class="intro">
+          {{ content | safe }}
+          <div class="btn-container">
+            <button class="tertiary" id="btn-all">Show All</button>
+            <button id="btn23" data-yr="23">2023</button>
+            <button id="btn22" data-yr="22">2022</button>
+            <button id="btn21" data-yr="21">2021</button>
+          </div>
+        </div>
+        {# {% for image in images %}
+          <div class="item">
+            <img src="images/{{ image }}" alt="Image {{ loop.index }}">
+          </div>
+        {% endfor %} #}
+        {# {% for imageObj in images %}
+          <div class="item yr-{{ imageObj.year }}">
+            <img src="images/{{ imageObj.year }}-{{ imageObj.image }}" alt="{{ imageObj.name }}">
+            <div class="title">{{ imageObj.name }}</div>
+          </div>
+        {% endfor %} #}
+
+        {% for imageObj in images | reverse %}
+          <div class="item yr-{{ imageObj.year }}">
+            <img src="images/{{ imageObj.filename }}" alt="{{ imageObj.name }}">
+            <div class="title">{{ imageObj.name }}</div>
+          </div>
+        {% endfor %}
+
+      </main>
+      <footer class="footer">
+        <p class="copyright">© 2021-2023 <a href="https://jordanne.ca">Jordanne Chan</a>
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

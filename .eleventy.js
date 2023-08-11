@@ -6,8 +6,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget("src/images");
   eleventyConfig.addPassthroughCopy("src/assets");
 
-  const baseUrl = "https://jordanne.ca/pixels/";
-  eleventyConfig.addShortcode('baseUrl', () => baseUrl);
   return {
     passthroughFileCopy: true,
     dir: {
